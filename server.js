@@ -65,7 +65,7 @@ const render = (data) => {
   const bulanKey = now.toLocaleString("id-ID", { month: "long", year: "numeric" });
 
   if (!data.some((i) => new Date(i.tanggal).getMonth() === now.getMonth() && new Date(i.tanggal).getFullYear() === now.getFullYear())) {
-    notifEl.innerHTML = `<div class="bg-red-100 text-red-800 p-4 rounded-lg shadow">💡 Anda belum belanja di bulan ${bulanKey}.</div>`;
+    notifEl.innerHTML = `<div class="bg-red-100 text-red-800 p-4 rounded-lg shadow">💡 Belum ada data kendaraan Bulan ${bulanKey}.</div>`;
   }
 
   const byBulan = data.reduce((acc, item) => {
