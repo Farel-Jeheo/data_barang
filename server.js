@@ -115,19 +115,21 @@ window.hapusItem = async (id) => {
 
 // Delete all items in the month
 window.hapusBulan = async (bulan, items) => {
-  if (confirm(`Hapus semua data bulan ${bulan}?`)) {
-    const ids = items.map(i => i.id);
-    await supabase.from(TABLE).delete().in("id", ids);
-    Swal.fire({
-        title: 'Sukses!',
-        text: 'Barang berhasil disimpan.',
-        icon: 'success',
-        confirmButtonText: 'Ok'
-    });
-    load();
-  }
+    if (confirm(`Hapus semua data bulan ${bulan}?`)) {
+        const ids = items.map(i => i.id);
+        await supabase.from(TABLE).delete().in("id", ids);
+        
+        // Show SweetAlert success message after deletion
+        Swal.fire({
+            title: 'Sukses!',
+            text: 'Semua data bulan berhasil dihapus.',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+        }).then(() => {
+            load(); // Reload the data after the alert is closed
+        });
+    }
 };
-
 // Edit item function
 window.editItem = async (item) => {
   const nama = prompt("Nama Barang", item.nama_barang);
