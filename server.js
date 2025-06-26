@@ -118,6 +118,12 @@ window.hapusBulan = async (bulan, items) => {
   if (confirm(`Hapus semua data bulan ${bulan}?`)) {
     const ids = items.map(i => i.id);
     await supabase.from(TABLE).delete().in("id", ids);
+    Swal.fire({
+        title: 'Sukses!',
+        text: 'Barang berhasil disimpan.',
+        icon: 'success',
+        confirmButtonText: 'Ok'
+    });
     load();
   }
 };
