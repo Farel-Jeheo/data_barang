@@ -149,28 +149,33 @@ load();
 
 // Form submission
 form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const stok = +stokEl.value,
-    harga = +hargaEl.value;
-  const payload = {
-    nama_barang: namaBarang.value,
-    stok,
-    harga,
-    total: stok * harga,
-    type: typeBelanja.value,
-    tanggal: new Date().toISOString().split("T")[0],
-  };
-  await supabase.from(TABLE).insert(payload);
-  form.reset();
-  totalEl.textContent = "Rp 0";
+    e.preventDefault();
+    const stok = +stokEl.value,
+        harga = +hargaEl.value;
+    const payload = {
+        nama_barang: namaBarang.value,
+        stok,
+        harga,
+        total: stok * harga,
+        type: typeBelanja.value,
+        tanggal: new Date().toISOString().split("T")[0],
+    };
 
-  // Show SweetAlert success message
-  Swal.fire({
-    title: 'Sukses!',
-    text: 'Barang berhasil disimpan.',
-    icon: 'success',
-    confirmButtonText: 'Ok'
-  });
+    await supabase.from(TABLE).insert(payload);
+    form.reset();
+    totalEl.textContent = "Rp 0";
 
-  load();
+    // Show SweetAlert success message
+    Swal.fire({
+        title: 'Sukses!',
+        text: 'Barang berhasil disimpan.',
+        icon: 'success',
+        confirmButtonText: 'Ok'
+    }).then(() => {
+        // Reset to Step 1 after closing the alert
+        document.getElementById("step-1").classList.remove("hidden");
+        document.getElementById("step-2").classList.add("hidden");
+    });
+
+    load();
 });
