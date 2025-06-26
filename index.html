@@ -47,91 +47,75 @@
   </head>
   <body class="min-h-screen flex items-center justify-center">
     <div class="card p-8 max-w-md w-full">
-      <h1 class="text-4xl font-bold text-center mb-6">📆 Catatan Barang</h1>
-      <h2 class="text-2xl font-semibold text-center mb-4">
-        Tambah Barang Baru
-      </h2>
-      <form id="form-barang" class="space-y-6">
-        <!-- Step 1 -->
-        <div id="step-1">
-          <div>
-            <label for="nama_barang" class="block text-sm font-medium mb-1"
-              >Nama Barang</label
-            >
-            <input
-              type="text"
-              id="nama_barang"
-              placeholder="Contoh: Vario/Avanza"
-              class="w-full p-4 border border-gray-600 rounded-lg bg-gray-800 text-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              required
-            />
-          </div>
-          <div>
-            <label for="type" class="block text-sm font-medium mb-1"
-              >Tipe Kendaraan</label
-            >
-            <select
-              id="type"
-              class="w-full p-4 border border-gray-600 rounded-lg bg-gray-800 text-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              required
-            >
-              <option value="Motor">Motor</option>
-              <option value="Mobil">Mobil</option>
-            </select>
-          </div>
-          <div class="flex justify-end mt-5">
-            <button type="button" id="next-step" class="btn">
-              Selanjutnya
-            </button>
-          </div>
-        </div>
-
-        <!-- Step 2 -->
-        <div id="step-2" class="hidden">
-          <div>
-            <label for="stok" class="block text-sm font-medium mb-1"
-              >Stok Kendaraan</label
-            >
-            <input
-              type="number"
-              id="stok"
-              placeholder="0"
-              class="w-full p-4 mt-4 border border-gray-600 rounded-lg bg-gray-800 text-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              required
-            />
-          </div>
-          <div>
-            <label for="harga" class="block text-sm font-medium mb-1"
-              >Harga Satuan Barang</label
-            >
-            <input
-              type="number"
-              id="harga"
-              placeholder="0"
-              class="w-full mt-4 p-4 border border-gray-600 rounded-lg bg-gray-800 text-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              required
-            />
-          </div>
-          <div
-            class="bg-gray-700 text-white p-4 rounded-lg flex justify-between mt-4"
-          >
-            <span>Total Harga:</span>
-            <span id="total_harga">Rp 0</span>
-          </div>
-          <div class="flex justify-end mt-4">
-            <button type="submit" class="btn">💾 Simpan Barang</button>
-          </div>
-        </div>
-      </form>
+        <h1 class="text-4xl font-bold text-center mb-6">📆 Catatan Barang</h1>
+        <h2 class="text-2xl font-semibold text-center mb-4">Tambah Barang Baru</h2>
+        <form id="form-barang" class="space-y-6">
+            <!-- Step 1 -->
+            <div id="step-1">
+                <div>
+                    <label for="nama_barang" class="block text-sm font-medium mb-1">Nama Barang</label>
+                    <input
+                        type="text"
+                        id="nama_barang"
+                        placeholder="Contoh: Vario/Avanza"
+                        class="w-full p-4 border border-gray-600 rounded-lg bg-gray-800 text-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                        required
+                    />
+                </div>
+                <div>
+                    <label for="type" class="block text-sm font-medium mb-1">Tipe Kendaraan</label>
+                    <select
+                        id="type"
+                        class="w-full p-4 border border-gray-600 rounded-lg bg-gray-800 text-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                        required
+                    >
+                        <option value="Motor">Motor</option>
+                        <option value="Mobil">Mobil</option>
+                    </select>
+                </div>
+                <div class="flex justify-end mt-5">
+                    <button type="button" id="next-step" class="btn">Selanjutnya</button>
+                </div>
+            </div>
+    
+            <!-- Step 2 -->
+            <div id="step-2" class="hidden">
+                <div>
+                    <label for="stok" class="block text-sm font-medium mb-1">Stok Kendaraan</label>
+                    <input
+                        type="number"
+                        id="stok"
+                        placeholder="0"
+                        class="w-full p-4 mt-4 border border-gray-600 rounded-lg bg-gray-800 text-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                        required
+                    />
+                </div>
+                <div>
+                    <label for="harga" class="block text-sm font-medium mb-1">Harga Satuan Barang</label>
+                    <input
+                        type="number"
+                        id="harga"
+                        placeholder="0"
+                        class="w-full mt-4 p-4 border border-gray-600 rounded-lg bg-gray-800 text-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                        required
+                    />
+                </div>
+                <div class="bg-gray-700 text-white p-4 rounded-lg flex justify-between mt-4">
+                    <span>Total Harga:</span>
+                    <span id="total_harga">Rp 0</span>
+                </div>
+                <div class="flex justify-end mt-4">
+                    <button type="submit" class="btn">💾 Simpan Barang</button>
+                </div>
+            </div>
+        </form>
     </div>
+    
+    <!-- Notification and Results Section -->
     <div class="mt-4">
         <div id="notif-area" class="text-center mt-4"></div>
-        <div
-          id="hasil-belanja"
-          class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8"
-        ></div>
+        <div id="hasil-belanja" class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8"></div>
     </div>
-
     <script type="module" src="server.js"></script>
   </body>
 </html>
